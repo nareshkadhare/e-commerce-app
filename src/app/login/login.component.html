@@ -1,0 +1,33 @@
+<div class="login">
+  <mat-card class="login-card">
+    <h3>Ecommerce - Login</h3>
+    <p>
+      <mat-form-field appearance="outline" class="full_control">
+        <mat-label>Email Address</mat-label>
+        <input matInput placeholder="Your Email Address" required />
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-hint>youremail@domain.com</mat-hint>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="outline" class="full_control">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Your Password" required />
+        <mat-icon matSuffix>password</mat-icon>
+        <mat-hint>atleast 8 charcter password </mat-hint>
+      </mat-form-field>
+    </p>
+    <mat-card-actions>
+      <p>
+        <button mat-raised-button color="primary" style="margin-left: 1rem;">
+          Login <mat-icon matSuffix>login</mat-icon>
+        </button>
+        <button routerLink="/registration" mat-button color="primary">New user? Create an account.</button>
+      </p>
+    </mat-card-actions>
+    <mat-card-footer>
+        
+    </mat-card-footer>
+  </mat-card>
+</div>
