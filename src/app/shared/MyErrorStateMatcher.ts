@@ -6,13 +6,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     control: FormControl | null,
     form: FormGroupDirective | NgForm | null
   ): boolean {
+    
     const confirmPassword = control.value;
     const password = control.parent.value.password;
-
-    if (confirmPassword === '' || password === '') {
+    if (confirmPassword === '' && control.untouched) {
       return false;
     }
 
-    return password && confirmPassword && password !== confirmPassword;
+    let result:any = password && confirmPassword && password !== confirmPassword;
+          
+    return  (result || result ==='') ? true : false;
   }
 }

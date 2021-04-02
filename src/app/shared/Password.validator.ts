@@ -6,11 +6,15 @@ export function PasswordValidator(
   const password = control.get('password').value;
   const confirmPassword = control.get('confirmPassword').value;
   
+  if ((password === '' && confirmPassword !== '')) {
+    return { 'misMatch' : true };
+  }
+
   if (password === '' || confirmPassword === '') {
     return null;
   }
 
-  const isMismatched = password && confirmPassword && password !== confirmPassword;
+  const isMismatched = password !== confirmPassword;
 
   return isMismatched ? { 'misMatch' : true } : null;
 }
