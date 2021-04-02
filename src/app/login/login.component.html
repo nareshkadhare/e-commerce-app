@@ -1,8 +1,8 @@
-<div class="login" >
+<div class="login">
   <div>
     <img src="../../assets/images/login.png" width="580" alt="" />
   </div>
-  <div style="padding-top: 6rem;">
+  <div style="padding-top: 6rem">
     <form [formGroup]="loginForm" (submit)="login()" novalidate>
       <mat-card class="login-card">
         <h3>Ecommerce - Login</h3>
@@ -41,9 +41,12 @@
               required
             />
             <mat-icon matSuffix>password</mat-icon>
-            <mat-hint>atleast 8 charcter password </mat-hint>
+            <mat-hint>The password must be at least 8 charcter long.</mat-hint>
             <mat-error *ngIf="password.hasError('required')">
               Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="password.hasError('minlength')">
+              The password must be at least <strong> 8 charcter </strong> long.
             </mat-error>
           </mat-form-field>
         </p>
@@ -56,7 +59,7 @@
               color="primary"
               style="margin-left: 1rem"
             >
-              Login <mat-icon matSuffix>login</mat-icon>
+              Sign In <mat-icon matSuffix>login</mat-icon>
             </button>
             <button routerLink="/registration" mat-button color="primary">
               New user? Create an account.

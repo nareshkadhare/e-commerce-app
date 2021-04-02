@@ -8,7 +8,7 @@ import { User } from '../User';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']  
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   loginUser = new User();
@@ -21,11 +21,15 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  constructor(private _formBuilder: FormBuilder, public dialog: MatDialog,public router:Router) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    public dialog: MatDialog,
+    public router: Router
+  ) {}
 
   loginForm = this._formBuilder.group({
     email: ['', [Validators.required, Validators.pattern]],
-    password: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
   ngOnInit(): void {}
