@@ -4,10 +4,11 @@
   box-sizing: border-box;
 }
 .login {
-  padding: 3rem;
-  background: whitesmoke;
+  padding-top: 3rem;  
   min-height: 100%;
   height: auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .login h3 {
@@ -17,11 +18,14 @@
 
 .login-card {
   max-width: 400px;
-  margin: 0 auto;
-  
+  margin: 0 auto;  
 }
 
 .full_control {
   width: 100%;
   margin: 0.5rem auto;
+}
+
+.login img {
+  padding-top: 4.2rem;
 }

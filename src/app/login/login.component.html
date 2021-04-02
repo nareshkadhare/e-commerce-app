@@ -1,59 +1,72 @@
-<div class="login">
-  <form [formGroup]="loginForm" (submit)="login()" novalidate>
-    <mat-card class="login-card">
-      <h3>Ecommerce - Login</h3>
-      <p>
-        <mat-form-field appearance="outline" class="full_control">
-          <mat-label>Email Address</mat-label>
-          <input
-            type="email"
-            matInput
-            formControlName="email"
-            placeholder="Your Email Address"
-            pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"  
-            required          
-          />
-          <mat-icon matSuffix>email</mat-icon>
-          <mat-hint>youremail@domain.com</mat-hint>
-          <mat-error *ngIf="email.hasError('pattern') && !email.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="email.hasError('required')">
-            Email is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </p>
-
-      <p>
-        <mat-form-field appearance="outline" class="full_control">
-          <mat-label>Password</mat-label>
-          <input
-            type="password"
-            matInput
-            formControlName="password"
-            placeholder="Your Password"            
-            required
-          />
-          <mat-icon matSuffix>password</mat-icon>
-          <mat-hint>atleast 8 charcter password </mat-hint>
-          <mat-error *ngIf="password.hasError('required')">
-            Password is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </p>
-      <mat-card-actions>
+<div class="login" >
+  <div>
+    <img src="../../assets/images/login.png" width="580" alt="" />
+  </div>
+  <div style="padding-top: 6rem;">
+    <form [formGroup]="loginForm" (submit)="login()" novalidate>
+      <mat-card class="login-card">
+        <h3>Ecommerce - Login</h3>
         <p>
-          <button type="submit" [disabled] = "loginForm.invalid" mat-raised-button color="primary" style="margin-left: 1rem">
-            Login <mat-icon matSuffix>login</mat-icon>
-          </button>
-          <button routerLink="/registration" mat-button color="primary">
-            New user? Create an account.
-          </button>
+          <mat-form-field appearance="outline" class="full_control">
+            <mat-label>Email Address</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              placeholder="Your Email Address"
+              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+              required
+            />
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-hint>youremail@domain.com</mat-hint>
+            <mat-error
+              *ngIf="email.hasError('pattern') && !email.hasError('required')"
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </p>
-      </mat-card-actions>
-      <mat-card-footer>
-        <!-- Login Failed Error -->
-      </mat-card-footer>
-    </mat-card>
-  </form>
+
+        <p>
+          <mat-form-field appearance="outline" class="full_control">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              placeholder="Your Password"
+              required
+            />
+            <mat-icon matSuffix>password</mat-icon>
+            <mat-hint>atleast 8 charcter password </mat-hint>
+            <mat-error *ngIf="password.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+        <mat-card-actions>
+          <p>
+            <button
+              type="submit"
+              [disabled]="loginForm.invalid"
+              mat-raised-button
+              color="primary"
+              style="margin-left: 1rem"
+            >
+              Login <mat-icon matSuffix>login</mat-icon>
+            </button>
+            <button routerLink="/registration" mat-button color="primary">
+              New user? Create an account.
+            </button>
+          </p>
+        </mat-card-actions>
+        <mat-card-footer>
+          <!-- Login Failed Error -->
+        </mat-card-footer>
+      </mat-card>
+    </form>
+  </div>
 </div>
