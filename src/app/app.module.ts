@@ -6,8 +6,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule,RoutingComponents } from './app-routing.module';
+import { SimpleDialogComponent } from './simple-dialog/simple-dialog.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,15 @@ import { AppRoutingModule,RoutingComponents } from './app-routing.module';
     DashboardComponent,
     HomeComponent,
     RoutingComponents,
-  ],
+    SimpleDialogComponent
+  ],  
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

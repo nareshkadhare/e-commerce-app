@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.page-not-found {
+  background-color: aliceblue;
+  min-height: 100%;
+  height: auto;
+  padding-top: 16rem;
+  margin: 0 auto;
+}
+.page-not-found h1 {
+    text-align: center;
+}
+.page-not-found p {
+    padding: 1rem;
+    text-align: center;
+}
