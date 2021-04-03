@@ -9,6 +9,7 @@ import { MaterialModule } from './material/material.module';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule,RoutingComponents } from './app-routing.module';
 import { SimpleDialogComponent } from './simple-dialog/simple-dialog.component';
+import { SideNavMenuComponent } from './side-nav-menu/side-nav-menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SimpleDialogComponent } from './simple-dialog/simple-dialog.component';
     DashboardComponent,
     HomeComponent,
     RoutingComponents,
-    SimpleDialogComponent
+    SimpleDialogComponent,
+    SideNavMenuComponent,
   ],  
   imports: [
     BrowserModule,
