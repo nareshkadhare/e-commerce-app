@@ -3,12 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-.login {
-  padding-top: 3rem;  
+.login {  
   min-height: 100%;
   height: auto;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;  
+  align-items: center;    
+  flex-wrap: wrap;  
 }
 
 .login h3 {
@@ -18,14 +19,28 @@
 
 .login-card {
   max-width: 400px;
-  margin: 0 auto;  
+  margin: 0 auto;    
 }
 
 .full_control {
   width: 100%;
-  margin: 0.5rem auto;
+  margin: 0.4rem auto;
 }
 
 .login img {
-  padding-top: 4.2rem;
+  margin-left: 2rem;
+}
+
+/* Responsive CSS */
+@media (max-width: 800px) {
+  .login {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login img {
+    margin: 0;
+    width: 100%;
+  }
+  
 }
