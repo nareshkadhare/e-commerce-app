@@ -1,15 +1,19 @@
 <mat-sidenav-container>
-    <mat-sidenav mode="side" [opened]="openSideNav" #sideNav>
-        <mat-list>
-            <mat-list-item *ngFor="let menu of menuItems" >
-                <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
-                <div mat-line routerLink="{{menu.path}}">
-                    {{menu.name}}
-                </div>
-            </mat-list-item>
-        </mat-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
+  <mat-sidenav mode="side" [opened]="openSideNav" #sideNav>
+    <mat-list>
+      <mat-list-item *ngFor="let menu of menuItems">
+        <button
+          routerLinkActive="active"
+          routerLink="{{ menu.path }}"
+          mat-button
+          (click)="sideNav.toggle();toggleMenu();"
+        >
+          <mat-icon mat-list-icon>{{ menu.icon }}</mat-icon> {{ menu.name }}
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>

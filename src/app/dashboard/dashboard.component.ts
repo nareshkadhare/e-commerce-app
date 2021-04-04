@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  openSideNav = false;
-
+ 
   constructor() {}
 
   ngOnInit(): void {}

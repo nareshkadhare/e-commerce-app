@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       this.email.value === 'admin@test.com' &&
       this.password.value === 'admin123'
     ) {
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['admin']);
     } else {
       this.dialog.open(SimpleDialogComponent, {
         data: {

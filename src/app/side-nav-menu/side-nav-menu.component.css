@@ -2,10 +2,14 @@ mat-sidenav-container {
     height: 100%;
 }
 
-mat-sidenav , mat-sidenav-content {
+mat-sidenav-content {
     padding: 10px;
 }
 
 mat-sidenav {    
     width: 200px;
+}
+
+.active {
+    background-color: #f5f5f5;
 }
