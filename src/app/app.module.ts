@@ -10,6 +10,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule,RoutingComponents } from './app-routing.module';
 import { SimpleDialogComponent } from './simple-dialog/simple-dialog.component';
 import { SideNavMenuComponent } from './side-nav-menu/side-nav-menu.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SideNavMenuComponent } from './side-nav-menu/side-nav-menu.component';
     MaterialModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
