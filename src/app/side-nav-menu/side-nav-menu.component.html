@@ -2,11 +2,11 @@
   <mat-sidenav mode="side" [opened]="openSideNav" #sideNav>
     <mat-list>
       <mat-list-item *ngFor="let menu of menuItems">
-        <button
-          routerLinkActive="active"
+        <button        
+          routerLinkActive="active"          
           routerLink="{{ menu.path }}"
           mat-button
-          (click)="sideNav.toggle();toggleMenu();"
+          (click)="sideNav.toggle(); toggleMenu()"
         >
           <mat-icon mat-list-icon>{{ menu.icon }}</mat-icon> {{ menu.name }}
         </button>
