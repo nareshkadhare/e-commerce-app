@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,18 +11,22 @@ import { ICategory } from '../model/category';
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name'];
+  displayedColumns: string[] = ['id', 'name','actions'];
   apiError: any;
   dataSource: MatTableDataSource<ICategory>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  @Output() showProgressLoader = new EventEmitter();
+  
   constructor(private _commonService: CommonService) {
   }
   
   ngOnInit(): void {
     
+    this.showProgressLoader.emit(true);
+
     this._commonService.getCategories().subscribe(
       (data) => {
         this.dataSource = new MatTableDataSource<ICategory>(data);
@@ -31,11 +35,13 @@ export class CategoriesComponent implements OnInit {
       },
       (error) => {
         this.apiError = error;
+      },
+      () => {
+        // this.showProgressLoader.emit(false);
       }
     );
   }
     
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -44,4 +50,5 @@ export class CategoriesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
 }
