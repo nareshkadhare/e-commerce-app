@@ -31,6 +31,24 @@
   margin-left: 2rem;
 }
 
+.form-div {
+  width: 50%;
+}
+
+.m-t1 {
+  margin-top: 1rem;
+}
+
+.status-active {
+  background-color: #28a745 !important;
+  color: white  !important;
+} 
+
+.status-deactive {
+  background-color: #dc3545  !important;
+  color: white  !important;
+}
+
 /* Responsive CSS */
 @media (max-width: 800px) {
   .login {
@@ -40,6 +58,10 @@
 
   .login img {
     margin: 0;
+    width: 100%;
+  }
+
+  .form-div {
     width: 100%;
   }
   

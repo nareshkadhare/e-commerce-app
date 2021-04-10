@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-admin',
@@ -8,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
 
   openSideNav = false;
-  
-  constructor() { }
+  showProgressBar = false;
+
+  constructor(private _commonService:CommonService) {
+
+    _commonService.apiCalledEvent.subscribe(data=>{
+      this.showProgressBar = data;
+    })
+   }
 
   ngOnInit(): void {
   }

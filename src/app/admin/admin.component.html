@@ -17,7 +17,8 @@
       <span class="material-icons"> account_circle </span>
     </button>
   </mat-toolbar>
-  
+  <mat-progress-bar *ngIf="showProgressBar" mode="indeterminate"></mat-progress-bar>
+
   <!-- Dashboard Side Menu  -->
   <app-side-nav-menu  (menuEvent)="openSideNav = $event" [openSideNav]="openSideNav"></app-side-nav-menu>
   

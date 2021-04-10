@@ -1,0 +1,68 @@
+<div class="form-div">
+  <mat-card>
+    <h3>Save Category</h3>
+
+    <form
+      [formGroup]="categoryForm"
+      novalidate
+      class="m-t1"
+      (submit)="saveCategory()"
+    >
+      <p>
+        <mat-form-field appearance="outline" class="full_control">
+          <mat-label>Category name</mat-label>
+          <input
+            type="text"
+            formControlName="name"
+            matInput
+            placeholder="Enter category name"
+            required
+            [class.is-invalid]="name.touched && name.invalid"
+          />
+          <mat-error
+            *ngIf="name.hasError('required') || name.hasError('isEmpty')"
+          >
+            Category name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-slide-toggle
+          formControlName="status"
+          class="example-margin"
+          color="primary"
+        >
+          <mat-chip-list>
+            <mat-chip *ngIf="status.value" class="status-active"
+              >Active</mat-chip
+            >
+            <mat-chip *ngIf="!status.value" class="status-deactive"
+              >De-Active</mat-chip
+            >
+          </mat-chip-list>
+        </mat-slide-toggle>
+      </p>
+
+      <mat-card-actions class="m-t1">
+        <p>
+          <button
+            [disabled]="categoryForm.invalid"
+            type="submit"
+            mat-raised-button
+            color="primary"
+            style="margin-left: 1rem"
+          >
+            Save <mat-icon matSuffix>add_task</mat-icon>
+          </button>
+          <button routerLink="../../categories" mat-button color="primary">
+            Back
+          </button>
+        </p>
+      </mat-card-actions>
+      <mat-card-footer>
+        <!-- Login Failed Error -->
+      </mat-card-footer>
+    </form>
+  </mat-card>
+</div>
