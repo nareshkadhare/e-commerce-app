@@ -1,6 +1,6 @@
 <div class="form-div">
   <mat-card>
-    <h3>Save Category</h3>
+    <h3>{{ crudAction }} Category</h3>
 
     <form
       [formGroup]="categoryForm"
@@ -53,9 +53,12 @@
             color="primary"
             style="margin-left: 1rem"
           >
-            Save <mat-icon matSuffix>add_task</mat-icon>
+            {{ crudAction }}
+            <mat-icon matSuffix
+              >{{ crudAction === "Create" ? "add_task" : "edit_note" }}
+            </mat-icon>
           </button>
-          <button routerLink="../../categories" mat-button color="primary">
+          <button routerLink="/admin/categories" mat-button color="primary">
             Back
           </button>
         </p>

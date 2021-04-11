@@ -22,6 +22,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'categories', component: CategoriesComponent },
       { path: 'save-category/:action', component: CategoryFormComponent },
+      { path: 'save-category/:action/:id', component: CategoryFormComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'orders', component: OrdersComponent },
     ],

@@ -11,6 +11,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '../common.service';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { ICategory } from '../model/category';
 import { SimpleDialogComponent } from '../simple-dialog/simple-dialog.component';
 
@@ -22,6 +23,7 @@ import { SimpleDialogComponent } from '../simple-dialog/simple-dialog.component'
 export class CategoriesComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'status', 'actions'];
   apiError: any;
+  alertMessage: string;
   dataSource: MatTableDataSource<ICategory>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,6 +39,11 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     this._commonService.apiCalled(true);
     this.loadCategory();
+    this.route.params.subscribe((param) => {
+      if (param && param.id) {
+        this.alertMessage = 'Category has been saved with ID : '+param.id+'';
+      }
+    });
   }
 
   loadCategory() {
@@ -52,7 +59,7 @@ export class CategoriesComponent implements OnInit {
       () => {
         this._commonService.apiCalled(false);
       }
-    )
+    );
   }
 
   applyFilter(event: Event) {
@@ -65,34 +72,43 @@ export class CategoriesComponent implements OnInit {
   }
 
   deleteCategory(category: ICategory) {
-    
-    if (confirm('Are you sure?')) {
-      this._commonService.deleteCategory(category.id).subscribe(
-        (data) => {
-          this.dialog.open(SimpleDialogComponent, {
-            data: {
-              moduleName: 'Delete-Category',
-              message: 'Category Deleted Successfully',
-            },
-          });
-        },
-        (error) => {
-          this.dialog.open(SimpleDialogComponent, {
-            data: {
-              moduleName: 'Delete-Category',
-              message: 'Error : ' + error.message,
-            },
-          });
-        },
-        () => {
-          this.loadCategory();
-        }
-      );
-    }
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        title: 'Delete-Category',
+        message: 'Are you sure you want to delete?',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this._commonService.deleteCategory(category.id).subscribe(
+          (data) => {
+            this.alertMessage = 'Category deleted successfully.';
+          },
+          (error) => {
+            this.dialog.open(SimpleDialogComponent, {
+              data: {
+                moduleName: 'Delete-Category',
+                message: 'Error : ' + error.message,
+              },
+            });
+          },
+          () => {
+            this.loadCategory();
+          }
+        );
+      }
+    });
+  }
+
+  editCategory(element) {
+    this.router.navigate(['../save-category', 'Update', element.id], {
+      relativeTo: this.route,
+    });
   }
 
   saveCategory(action) {
-    this.router.navigate(['../save-category', 'save'], {
+    this.router.navigate(['../save-category', 'Create'], {
       relativeTo: this.route,
     });
   }

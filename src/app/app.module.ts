@@ -11,6 +11,7 @@ import { AppRoutingModule,RoutingComponents } from './app-routing.module';
 import { SimpleDialogComponent } from './simple-dialog/simple-dialog.component';
 import { SideNavMenuComponent } from './side-nav-menu/side-nav-menu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     RoutingComponents,
     SimpleDialogComponent,
     SideNavMenuComponent,
+    ConfirmationDialogComponent,
   ],  
   imports: [
     BrowserModule,

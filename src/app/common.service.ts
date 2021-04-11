@@ -21,6 +21,12 @@ export class CommonService {
       .get<ICategory[]>(this.API + 'categories')
       .pipe(catchError(this.errorHandler));
   };
+  
+  getCategory = (id:number): Observable<ICategory> => {
+    return this.http
+      .get<ICategory>(this.API + 'categories/'+id)
+      .pipe(catchError(this.errorHandler));
+  };
 
   errorHandler(httpErrorResponce: HttpErrorResponse) {
     return throwError({
@@ -29,9 +35,14 @@ export class CommonService {
     });
   }
 
-  saveCategory(data: ICategory) {
+  saveCategory(data: ICategory,action,id) {
+    return this.http[action](this.API + 'categories/'+(id || ''), data)
+      .pipe(catchError(this.errorHandler));
+  }
+  
+  updateCategory(data: ICategory,id) {
     return this.http
-      .post(this.API + 'categories', data)
+      .put(this.API + 'categories/'+id, data)
       .pipe(catchError(this.errorHandler));
   }
 
