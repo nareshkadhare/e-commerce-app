@@ -1,0 +1,9 @@
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activeLink {
+  background-color: white;
+  color: black;
+}

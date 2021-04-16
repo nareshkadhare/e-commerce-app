@@ -55,6 +55,13 @@ export class CategoriesComponent implements OnInit {
       },
       (error) => {
         this.apiError = error;
+        this._commonService.apiCalled(false);
+        this.dialog.open(SimpleDialogComponent, {
+          data: {
+            moduleName: 'Load-Categories',
+            message: 'Error : ' + error.message,
+          },
+        });
       },
       () => {
         this._commonService.apiCalled(false);

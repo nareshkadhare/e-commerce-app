@@ -1,0 +1,32 @@
+<mat-toolbar color="accent">
+  <mat-toolbar-row class="main-menu">
+    <div>
+      <span>Shopping-King</span>
+    </div>
+    <div>
+      <button routerLink="./home" routerLinkActive="activeLink" mat-button>Home</button>
+      <button routerLink="./products" routerLink="./products" routerLinkActive="activeLink" mat-button>Category</button>
+
+      <button  mat-button [matMenuTriggerFor]="belowMenu">Products</button>
+      <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+
+      <button mat-button [matMenuTriggerFor]="beforeMenu">Login</button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+
+      <button mat-button>
+        Cart
+        <span class="material-icons"> shopping_cart </span>
+      </button>
+      <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

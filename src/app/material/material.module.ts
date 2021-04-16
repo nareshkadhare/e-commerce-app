@@ -16,6 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 
 const materialModules = [
   MatCardModule,
@@ -35,10 +36,11 @@ const materialModules = [
   MatProgressBarModule,
   MatSlideToggleModule,
   MatChipsModule,
+  MatMenuModule
 ];
 
 @NgModule({
   imports: [materialModules],
   exports: [materialModules],
 })
-export class MaterialModule {}
+export class MaterialModule { }
